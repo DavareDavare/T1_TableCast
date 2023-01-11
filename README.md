@@ -13,6 +13,7 @@ Mikrocontroller inkl. Bluetoothmodul realisiert.
 
 
 #Anforderungen
+
 Die bestehende Elektroniklösung soll durch einen Raspberry Pi Zero (inkl. WLAN) ersetzt
 werden, die Android APP durch eine Webseite damit der Drehteller mit beliebigen
 Endgeräten konfiguriert werden kann (und nicht mehr nur mit einem Android Smartphone).
