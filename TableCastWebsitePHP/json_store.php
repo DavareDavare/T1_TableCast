@@ -8,11 +8,11 @@ if(isset($_REQUEST['submit']))
     $filename = "data.json";
     if(is_file($filename))
     {
-        $data - file_get_contents($filename);
+        $data = file_get_contents($filename);
     }
     
     
-    $json_arr -json_decode($data, true);
+    $json_arr = json_decode($data, true);
 
     $json_arr[] = array('Helligkeit' => $_REQUEST['Helligkeit'], 'Geschwindigkeit' => $_REQUEST['Geschwindigkeit'], 'Text' => $_REQUEST['Text']);
     file_put_contents($filename, json_encode($json_arr));
