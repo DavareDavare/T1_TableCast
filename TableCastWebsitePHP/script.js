@@ -20,3 +20,12 @@ function textarealimit(textarea, rows, chars, rowsleft_id, charsleft_id) {
         if(chars != undefined) document.getElementById(charsleft_id).innerHTML = chars - textarea.value.length;
     }
 }
+
+function goPython(){
+    $.ajax({
+      url: "./main.py",
+     context: document.body
+    }).done(function() {
+     alert('finished python script');;
+    });
+}
