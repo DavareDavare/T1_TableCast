@@ -19,7 +19,11 @@ function textarealimit(textarea, rows, chars, rowsleft_id, charsleft_id) {
     if(charsleft_id != undefined) {
         if(chars != undefined) document.getElementById(charsleft_id).innerHTML = chars - textarea.value.length;
     }
+
+    document.getElementById(fieldId).style.height = document.getElementById(fieldId).scrollHeight+'px';
+    setHeight('Text');
 }
+
 
 function goPython(){
     $.ajax({

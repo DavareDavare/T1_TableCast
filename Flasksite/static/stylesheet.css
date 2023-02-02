@@ -1,0 +1,26 @@
+label{ 
+    display: block;
+}
+
+body{
+    background-size: cover;
+}
+
+#feld{
+    width: 200;
+}
+
+#submit{
+    margin-top: 20px;
+    width: 200;
+}
+
+
+button {
+    border-radius: 0;
+  }
+
+  textarea {
+    width: 170px;
+    height: 165px;
+  }

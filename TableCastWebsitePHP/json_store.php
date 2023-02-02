@@ -14,8 +14,8 @@ if(isset($_REQUEST['submit']))
     
     $json_arr =json_decode($data, true);
 
-    $json_arr[] = array('Helligkeit' => $_REQUEST['Helligkeit'], 'Geschwindigkeit' => $_REQUEST['Geschwindigkeit'], 'Text' => $_REQUEST['Text']);
+    $json_arr[] = array('Helligkeit' => $_REQUEST['Helligkeit'], 'Geschwindigkeit' => $_REQUEST['Geschwindigkeit'], 'Text' => $_REQUEST['Text'], 'Wlanname' => $_REQUEST['Wlanname'], 'Wlanpasswort' => $_REQUEST['Wlanpasswort']);
     file_put_contents($filename, json_encode($json_arr));
-    header("Location: http://localhost:3000/index.html");
+    header("Location: http://localhost:3000/TableCastWebsitePHP/index.html");
 }
 ?>
