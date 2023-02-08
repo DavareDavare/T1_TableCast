@@ -1,2 +1,5 @@
 > Daily Scrum am 01.02.2023
     Probleme: keine
+> Daily Scrum am 08.02.2023
+    Probleme: Alessandro: "Wir brauchen eine bessere Planung" -> wird geschaffen durch Velocity und erste Erfahrungen
+    Probleme: Cedric: "Nur mit mir selbst"
