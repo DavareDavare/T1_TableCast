@@ -3,3 +3,6 @@
 > Daily Scrum am 08.02.2023
     Probleme: Alessandro: "Wir brauchen eine bessere Planung" -> wird geschaffen durch Velocity und erste Erfahrungen
     Probleme: Cedric: "Nur mit mir selbst"
+> Daily Scrum am 22.02.2023:
+    Probleme: Alessandro: "Drehteller wäre toll" -> kommt in Zukunft
+ 
