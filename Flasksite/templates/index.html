@@ -1,17 +1,19 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="../static/stylesheet.css">
-        <script type="text/javascript" src="../static/script.js"></script>
-    </head>
-    <body>
-        <form method="post">
-            <label>Helligkeit</label>
-            <input type="Helligkeit" name="Helligkeit">
-            <label>Geschwindigkeit</label>
-            <input type="Geschwindigkeit" name="Geschwindigkeit">
-            <label>Text</label>
-            <textarea onkeydown="textarealimit(this, 10)" onkeyup="textarealimit(this, 10)" onpaste="textarealimit(this, 10)" type="Text" name="Text" id="Text"></textarea>
-            <input type="submit" value="Submit">
-        </form>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+</head>
+<body>
+
+    <h3>Home</h3>
+    <a href="{{ url_for('load') }}">Load</a>
+    <a href="{{ url_for('settings') }}">Settings</a>
+    <a href="{{ url_for('login') }}">Login</a>
+    <a href="{{ url_for('register') }}">Register</a>
+    
+    
+</body>
 </html>
