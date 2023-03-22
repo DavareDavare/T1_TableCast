@@ -3,10 +3,6 @@ import sys
 import json
 import RPi.GPIO as GPIO
 
-<<<<<<< HEAD
-#Direkt aus den vorgegebenen Scripts genommen
-=======
->>>>>>> 16863da91af4ea366abe34e58e7b1ca57ccb7ddc
 LCD_RS = 14
 LCD_E  = 15
 LCD_DATA4 = 18
@@ -97,8 +93,7 @@ if __name__ == '__main__':
 
 if __name__ == '__main__':
 
-<<<<<<< HEAD
-    #Liest Inputs.Json
+    
     with open("./inputs.json") as json_file:
         data = json.load(json_file)
 	
@@ -106,105 +101,51 @@ if __name__ == '__main__':
     GPIO.setmode (GPIO.BCM)
     GPIO.setup (LED_GPIO, GPIO.OUT)
     pwmLED = GPIO.PWM(LED_GPIO,100)
-    #Setzt die LEDs auf Helligkeit
     pwmLED.start(int(data["Helligkeit"]))
-=======
-    LED_GPIO = 20
-    GPIO.setmode (GPIO.BCM)
-    GPIO.setup (LED_GPIO, GPIO.OUT)
-    pwmMotor = GPIO.PWM(MOTOR_GPIO,100)
-    pwmMotor.start(data["Helligkeit"])
->>>>>>> 16863da91af4ea366abe34e58e7b1ca57ccb7ddc
 
     MOTOR_GPIO = 21
     GPIO.setmode (GPIO.BCM)
     GPIO.setup (MOTOR_GPIO, GPIO.OUT)
     pwmMotor = GPIO.PWM(MOTOR_GPIO, 100)
-<<<<<<< HEAD
-    #Setzt Geschwindigkeit
     pwmMotor.start(int(data["Geschwindigkeit"]))
 
-	#Holt den Text und speichert diesen in eine Variable
-	#Und setzt ", " an das Ende, um die den letzten String mit dem ersten zu verbinden, da sonst kein Beistrich zwischen letztem und erstem String   
     input1 = data["Text"]
     input1 += ", "
 
-	#Nimmt den langen Text String und splitted ihn in ein Array
-=======
-    pwmMotor.start(data["Geschwindigkeit"])
-
-    with open("./Flasksite/inputs.json") as json_file:
-        data = json.load(json_file)
-
-    input1 = data["Text"]
-    input1 += " "
-
->>>>>>> 16863da91af4ea366abe34e58e7b1ca57ccb7ddc
     listZeilen = str.split(input1, ",")
 
     print(listZeilen)
 
     lst = []
     value = True
-<<<<<<< HEAD
-
-	#Für die Aufteilung auf die Displays
-=======
     s = 0
 
->>>>>>> 16863da91af4ea366abe34e58e7b1ca57ccb7ddc
     for letter in input1:
         lst.append(letter)
 
     x = 0
-<<<<<<< HEAD
+    y = 0
 
-	#Ist dafür da den String auf die zwei Displays aufzuteilen
     eight = ""
     
     
     while len(lst)>0:
       try:
-		#setzt String mit 8 Buchstaben zusammen
-        eight += lst[x]
-        time.sleep(0.10)
-        x += 1
-		#Wenn 8 Zeichen im String sind wird der erste String auf das Display gesetzt
-		#Und der "eight" String wieder zurückgesetzt um die zweite Hälfte zu speichern
-        if(x==8):
-           message(eight)
-           eight = ""
-	    #Wenn wieder neue 8 Buchstaben im String sind werden diese auf das Display gesetzt
-		#Der erste Buchstabe an das Ende gesetzt und an erster Stelle gelöscht
-		#"eight" wieder zurückgesetzt
-=======
-    y = 0
-
-    #Variable um 8 Zeichen zu 
-    eight = ""
-    
-    while True:
-      try:
         #print(lst[x], end="")
         eight += lst[x]
-        time.sleep(0.005)
+        time.sleep(0.10)
         x += 1
         y += 0
         if(x==8):
            #print("   ", end="")
            message(eight)
            eight = ""
->>>>>>> 16863da91af4ea366abe34e58e7b1ca57ccb7ddc
         if(x==16):
             message(eight, 2)
             lst.append(lst[0])
             lst.pop(0)
             eight = ""
             x=0
-<<<<<<< HEAD
-	  #Strg + C
-=======
->>>>>>> 16863da91af4ea366abe34e58e7b1ca57ccb7ddc
       except KeyboardInterrupt:
         print("\nbye")
         GPIO.cleanup()

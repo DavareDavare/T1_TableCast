@@ -11,6 +11,13 @@
     <h3>Home</h3>
     <a href="{{ url_for('load') }}">Load</a>
     <a href="{{ url_for('settings') }}">Settings</a>
+    {% if current_user.is_authenticated %}
+    <a href="{{ url_for('logout') }}">Logout</a>
+    {% else %}
+    <a href="{{ url_for('login') }}">Login</a>
+    {% endif %} 
+    <a href="{{ url_for('register') }}">Register</a>
+    
     
 </body>
 </html>
