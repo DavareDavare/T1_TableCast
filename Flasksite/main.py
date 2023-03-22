@@ -1,13 +1,10 @@
 from flask import Flask, request, render_template, redirect, url_for, json, escape
-<<<<<<< HEAD
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length, ValidationError
 from flask_bcrypt import Bcrypt
-=======
->>>>>>> 16863da91af4ea366abe34e58e7b1ca57ccb7ddc
 import os
 import subprocess
 
@@ -18,7 +15,6 @@ app.config['SECRET_KEY'] = 'thisisasecretkey'
 bcrypt = Bcrypt(app)
 db = SQLAlchemy(app)
 
-<<<<<<< HEAD
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view="login"
@@ -61,9 +57,6 @@ class RegisterForm(FlaskForm):
 
 @app.route("/settings", methods=["GET", "POST"])
 @login_required
-=======
-@app.route("/settings", methods=["GET", "POST"])
->>>>>>> 16863da91af4ea366abe34e58e7b1ca57ccb7ddc
 def settings():
     if request.method == "POST":
         helligkeit = request.form["Helligkeit"]
@@ -75,13 +68,6 @@ def settings():
         text = text.replace('\r', ', ').replace('\n', '')
         stringsss = ["12","321","321"]
         print(text)
-<<<<<<< HEAD
-=======
-
-        jsonstring = "{\"Helligkeit\":" + "\"" + helligkeit + "\", " + "\"Geschwindigkeit\":" + "\"" + geschwindigkeit + "\", " + "\"Text\":" + "\"" + text + "\", " + "\"WLAN\":" + "\"" + wlan + "\", ""\"WLAN-Passwort\":" + "\"" + wlanpw + "\"}"
-        data = eval(jsonstring)
-        print(jsonstring)
->>>>>>> 16863da91af4ea366abe34e58e7b1ca57ccb7ddc
 
         jsonstring = "{\"Helligkeit\":" + "\"" + helligkeit + "\", " + "\"Geschwindigkeit\":" + "\"" + geschwindigkeit + "\", " + "\"Text\":" + "\"" + text + "\", " + "\"WLAN\":" + "\"" + wlan + "\", ""\"WLAN-Passwort\":" + "\"" + wlanpw + "\"}"
         data = eval(jsonstring)
@@ -89,11 +75,7 @@ def settings():
         #print(data['Helligkeit'])
         #print(jsonstring)
 
-<<<<<<< HEAD
         with open("./inputs.json", "w") as fo:
-=======
-        with open("./Flasksite/inputs.json", "w") as fo:
->>>>>>> 16863da91af4ea366abe34e58e7b1ca57ccb7ddc
             fo.write(jsonstring)
 
         return f"""
@@ -105,15 +87,10 @@ def settings():
             <li>WLAN-Passwort:{escape(wlanpw)}</li>
             <li>Text:</li>
         </ul>
-<<<<<<< HEAD
-=======
-        
->>>>>>> 16863da91af4ea366abe34e58e7b1ca57ccb7ddc
         <a href="{"/"}"> Zurück zum Hauptmenü </a>
         """
     return render_template("settings.html")
 
-<<<<<<< HEAD
 @app.route("/load", methods=["GET", "POST"])
 @login_required
 def load():
@@ -121,13 +98,6 @@ def load():
         data = json.load(json_file)
 
     os.system("sudo sh runScript.sh")
-=======
-
-@app.route("/load", methods=["GET", "POST"])
-def load():
-    with open("./Flasksite/inputs.json") as json_file:
-        data = json.load(json_file)
->>>>>>> 16863da91af4ea366abe34e58e7b1ca57ccb7ddc
 
     return f"""
     <H3>Folgende Daten Geladen:</h3> 
@@ -138,18 +108,10 @@ def load():
         <li>Wlanpasswort:{escape(data['WLAN-Passwort'])}</li>
         <li>Text:{escape(data['Text'])}</li>
     </ul>
-<<<<<<< HEAD
     <a href="{"/"}">Zurück zum Hauptmenü</a>
     """
 
 @app.route("/home")
-=======
-
-    <a href="{"/"}">Zurück zum Hauptmenü</a>
-    """
-
-@app.route("/")
->>>>>>> 16863da91af4ea366abe34e58e7b1ca57ccb7ddc
 def home():
     return render_template("index.html")
 
