@@ -121,6 +121,8 @@ def index():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    if current_user.is_authenticated:
+        return "<h1> Already Logged In</h1>"
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
@@ -129,6 +131,12 @@ def login():
                 login_user(user)
                 return redirect(url_for('home'))
     return render_template("login.html", form = form)
+
+@app.route("/logout",  methods=["GET", "POST"])
+def logout():
+    logout_user()
+    return redirect(url_for('home'))
+
 
 @app.route("/register", methods=["GET", "POST"])
 @login_required
