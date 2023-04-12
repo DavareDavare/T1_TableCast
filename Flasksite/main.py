@@ -5,9 +5,12 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length, ValidationError
 from flask_bcrypt import Bcrypt
+import signal
 import os
 import subprocess
 
+pid_drehteller = 0
+drehteller_running = False
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
@@ -94,22 +97,17 @@ def settings():
 @app.route("/load", methods=["GET", "POST"])
 @login_required
 def load():
+    drehteller_running = True
     with open("./inputs.json") as json_file:
         data = json.load(json_file)
 
-    os.system("sudo sh runScript.sh")
-
-    return f"""
-    <H3>Folgende Daten Geladen:</h3> 
-    <ul>
-        <li>Helligkeit:{escape(data['Helligkeit'])}</li>
-        <li>Geschwindigkeit:{escape(data['Geschwindigkeit'])}</li>
-        <li>Wlanname:{escape(data['WLAN'])}</li>
-        <li>Wlanpasswort:{escape(data['WLAN-Passwort'])}</li>
-        <li>Text:{escape(data['Text'])}</li>
-    </ul>
-    <a href="{"/"}">Zurück zum Hauptmenü</a>
-    """
+    #os.system("sudo sh runScript.sh")
+    try:
+        pid_drehteller = subprocess.run(['sudo', 'sh', './runScript.sh']).pid
+    except FileNotFoundError:
+        print("Datei wurde nicht gefunden.")
+        return "Datei nicht gefunden."
+    
 
 @app.route("/home")
 def home():
@@ -149,11 +147,15 @@ def register():
         db.session.add(new_user)
         db.session.commit()
         return redirect(url_for('login'))
-
     return render_template("register.html", form = form)
+
+@app.route("/stop", methods=["GET","POST"])
+def stop():
+    os.kill(pid_drehteller, signal.SIGKILL)
 
 
 if __name__ == "__main__":
-
     app.run()
+
+
 
