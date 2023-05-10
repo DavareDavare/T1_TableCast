@@ -6,11 +6,11 @@ from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length, ValidationError
 from flask_bcrypt import Bcrypt
 import signal
+import time
 import os
 import subprocess
 
-pid_drehteller = 0
-drehteller_running = False
+drehteller_running = 0
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
@@ -94,24 +94,44 @@ def settings():
         """
     return render_template("settings.html")
 
-@app.route("/load", methods=["GET", "POST"])
+@app.route("/start", methods=["GET", "POST"])
 @login_required
-def load():
-    drehteller_running = True
-    with open("./inputs.json") as json_file:
-        data = json.load(json_file)
-
-    #os.system("sudo sh runScript.sh")
-    try:
-        pid_drehteller = subprocess.run(['sudo', 'sh', './runScript.sh']).pid
-    except FileNotFoundError:
-        print("Datei wurde nicht gefunden.")
-        return "Datei nicht gefunden."
+def start():
+    global drehteller_running
+    if drehteller_running == 0:
+        drehteller_running = 1
+        drehteller_process = subprocess.Popen(['python','./drehteller.py'])
+        return f"""Application started successfully!
+        <a href="{"/"}"> Zurück zum Hauptmenü </a>
+        """
+    else:
+        return f"""Drehteller Läuft bereits!
+        <a href="{"/"}"> Zurück zum Hauptmenü </a>
+        """
     
 
-@app.route("/home")
+@app.route("/stop", methods=["GET", "POST"])
+@login_required
+def stop():
+    global drehteller_running
+    if drehteller_running == 1:
+        drehteller_running = 0
+        drehteller_process = subprocess.Popen(['python','./drehteller2.py'])
+        return f"""Application started successfully!
+        <a href="{"/"}"> Zurück zum Hauptmenü </a>
+        """
+    else:
+        return f"""Drehteller Läuft nicht!
+        <a href="{"/"}"> Zurück zum Hauptmenü </a>
+        """
+    
+
+@app.route("/home",methods=['GET', 'POST'])
 def home():
-    return render_template("index.html")
+    drehteller_running = False
+    print(drehteller_running)
+    # display the HTML template with the button
+    return render_template('index.html')
 
 @app.route("/")
 def index():
@@ -148,11 +168,6 @@ def register():
         db.session.commit()
         return redirect(url_for('login'))
     return render_template("register.html", form = form)
-
-@app.route("/stop", methods=["GET","POST"])
-def stop():
-    os.kill(pid_drehteller, signal.SIGKILL)
-
 
 if __name__ == "__main__":
     app.run()
