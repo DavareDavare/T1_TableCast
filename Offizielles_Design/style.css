@@ -1,0 +1,84 @@
+
+head{
+    background-color: #49454F;
+}
+body{
+    background-color: #daced1;
+}
+
+.card {
+    padding: 40px;
+    background-color: white;
+    margin: auto;
+    margin-top: 100px;
+    
+    font-size: 18px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, .4);
+  }
+  
+@media (max-width: 576px) {
+.card-body .row > div[class^="col-"] {
+    margin-bottom: 1rem;
+}
+}
+
+li {
+    float: left;
+    text-align: center;
+  }
+li a{
+    
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+      
+}
+.container-fluid
+{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+#SettingsGrid{
+    background-color: aqua;
+}
+
+#Display{
+    background-color: red;
+}
+
+#Displaytext{
+    height: 100px;
+}
+
+#Savebutton
+{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+#Savebutton:hover
+{
+    background-color: #3367D6;
+    color: #ffffff;
+}
+
+#Savebutton {
+    background-color: #4285F4;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+#Savebutton :active {
+    background-color: #274E9E;
+
+  }
+  
+
