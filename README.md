@@ -1,10 +1,10 @@
 # TableCast
 How the turns have tabled
 
-#Trello
+# Trello
 https://trello.com/b/lc6CWpEH/t1tablecast 
 
-#Einleitung
+# Einleitung
 
 Die HTL Saalfelden hat im Zuge des Werkstättenunterrichts in der Mechatronikabteilung
 einen Produkt Präsentationsdrehteller entworfen. Darauf können kleine Produkte platziert werden welche so den Kunden präsentiert werden
@@ -15,7 +15,7 @@ Android APP eingestellt. Die Elektronik des Drehtellers war mit einem kleinen
 Mikrocontroller inkl. Bluetoothmodul realisiert.
 
 
-#Anforderungen
+# Anforderungen
 
 Die bestehende Elektroniklösung soll durch einen Raspberry Pi Zero (inkl. WLAN) ersetzt
 werden, die Android APP durch eine Webseite damit der Drehteller mit beliebigen
@@ -44,7 +44,7 @@ gesetzt/gelesen werden können. Die Berechtigung soll bei der API über einen To
 zuvor Mockups erstellt werden, welche dem Kunden vorzulegen sind
 
 
-#Projektmanagementanforderungen
+# Projektmanagementanforderungen
 
 Das Projekt soll mit Hilfe agiler Methoden (SCRUM) umgesetzt werden. Der Quellcode sowie sämtliche Dokumentation ist in einem GITHUB Repository abzulegen. Das AddOn Zenhub (https://www.zenhub.com/) sorgt für die Integration zwischen Scrum
 und Github. Obwohl das Projekt mit agilen Methoden realisiert werden soll ist erforderlich sich zu Beginn gewissen Fragen zu stellen und zu klären:
