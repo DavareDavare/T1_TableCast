@@ -65,18 +65,11 @@ def settings():
         helligkeit = request.form["Helligkeit"]
         geschwindigkeit = request.form["Geschwindigkeit"]
         text = request.form["Text"]
-        wlan = request.form["WLAN-Name"]
-        wlanpw = request.form["WLAN-Passwort"]
 
         text = text.replace('\r', ', ').replace('\n', '')
-        stringsss = ["12","321","321"]
-        print(text)
 
-        jsonstring = "{\"Helligkeit\":" + "\"" + helligkeit + "\", " + "\"Geschwindigkeit\":" + "\"" + geschwindigkeit + "\", " + "\"Text\":" + "\"" + text + "\", " + "\"WLAN\":" + "\"" + wlan + "\", ""\"WLAN-Passwort\":" + "\"" + wlanpw + "\"}"
+        jsonstring = "{\"Helligkeit\":" + "\"" + helligkeit + "\", " + "\"Geschwindigkeit\":" + "\"" + geschwindigkeit + "\", " + "\"Text\":" + "\"" + text +  "\"}"
         data = eval(jsonstring)
-        print(jsonstring)
-        #print(data['Helligkeit'])
-        #print(jsonstring)
 
         with open("./inputs.json", "w") as fo:
             fo.write(jsonstring)
@@ -86,9 +79,7 @@ def settings():
         <ul>
             <li>Helligkeit:{escape(helligkeit)}</li>
             <li>Geschwindigkeit: {escape(geschwindigkeit)}</li>
-            <li>WLAN-Name:{escape(wlan)}</li>
-            <li>WLAN-Passwort:{escape(wlanpw)}</li>
-            <li>Text:</li>
+            <li>Text:{escape(text)}</li>
         </ul>
         <a href="{"/"}"> Zurück zum Hauptmenü </a>
         """
@@ -129,8 +120,6 @@ def stop():
 @app.route("/home",methods=['GET', 'POST'])
 def home():
     drehteller_running = False
-    print(drehteller_running)
-    # display the HTML template with the button
     return render_template('index.html')
 
 @app.route("/")
