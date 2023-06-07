@@ -123,13 +123,15 @@ if __name__ == '__main__':
     print(listZeilen)
 
     lst = []
+    value = True
 
 	#Für die Aufteilung auf die Displays
     for letter in input1:
         lst.append(letter)
 
     x = 0
-    #Ist dafür da den String auf die zwei Displays aufzuteilen
+
+	#Ist dafür da den String auf die zwei Displays aufzuteilen
     eight = ""
     
     

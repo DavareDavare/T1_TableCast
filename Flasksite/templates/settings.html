@@ -1,17 +1,46 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="../static/stylesheet.css">
-        <script type="text/javascript" src="../static/script.js"></script>
-    </head>
-    <body>
-        <form method="post">
-            <label>Helligkeit</label>
-            <input type="Helligkeit" name="Helligkeit">
-            <label>Geschwindigkeit</label>
-            <input type="Geschwindigkeit" name="Geschwindigkeit">
-            <label>Text</label>
-            <textarea onkeydown="textarealimit(this, 10)" onkeyup="textarealimit(this, 10)" onpaste="textarealimit(this, 10)" type="Text" name="Text" id="Text"></textarea>
-            <input type="submit" value="Submit">
-        </form>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="..\static\style.css">
+    <script type="text/javascript" src="../static/script.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einstellungen</title>
+</head>
+
+<body>
+  <script type="module" src="..\static\navbar.js"></script>
+  <my-navbar></my-navbar>
+  <form method="post">
+  <div class="container py-5">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title">Einstellungen</h1>
+        <div class="row">
+          <div class="col-sm-4">
+            <input type="Geschwindigkeit" class="form-control" name="Geschwindigkeit" placeholder="Motorgeschwindigkeit">
+          </div>
+          <div class="col-sm-4">
+            <input type="Helligkeit" name="Helligkeit" class="form-control" id="helligkeit" placeholder="LED-Helligkeit">
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col">
+            <textarea class="form-control" onkeydown="textarealimit(this, 10)" onkeyup="textarealimit(this, 10)" onpaste="textarealimit(this, 10)" type="Text" name="Text" id="Text" placeholder="Displaytext"></textarea>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mt-4">
+        <div class="col d-flex justify-content-center">
+          <input class="btn btn-lg" id="Savebutton" type="submit" value="Submit">
+        </div>
+    </div>
+  </div>
+</form>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
 </html>
