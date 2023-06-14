@@ -41,12 +41,18 @@ class Navbar extends LitElement {
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
       
       <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">HTL SAALFELDEN</a>
+        <a class="navbar-brand" href="home">HTL SAALFELDEN</a>
         <button class="navbar-toggler" type="button" @click="${this.toggleNavbar}">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="load">Start Drehteller</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="stop">Stop Drehteller</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="settings">Einstellungen</a>
             </li>

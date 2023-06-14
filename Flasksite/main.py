@@ -108,6 +108,7 @@ def index():
     return redirect(url_for('home'))
 
 @app.route("/reboot",methods=['GET', 'POST'])
+@login_required
 def restart():
     os.system('sudo reboot')
     return redirect(url_for('home'))
